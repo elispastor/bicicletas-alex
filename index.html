@@ -245,8 +245,15 @@
       }
     }
 
-    /* TARJETA CENTRAL Y FOOTER IGUAL QUE ANTES (resumido) */
+    /* AJUSTE ESPECIAL PARA MÓVIL: MENOS RECORTE */
+    @media (max-width: 640px) {
+      .hero-portada {
+        min-height: 220px;
+        background-position: center top;
+      }
+    }
 
+    /* TARJETAS */
     .zona-tarjeta {
       max-width: 1080px;
       margin: 0 auto;
