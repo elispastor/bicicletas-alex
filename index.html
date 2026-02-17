@@ -199,47 +199,42 @@
 
     .hero-portada {
       position: relative;
-      min-height: 200px;
+      min-height: 260px;
       border-radius: 20px;
       border: 1px solid rgba(148,163,184,0.4);
-      background: radial-gradient(circle at 20% 0, rgba(56,189,248,0.35), transparent 55%),
-                  radial-gradient(circle at 80% 100%, rgba(245,158,11,0.28), transparent 55%),
-                  linear-gradient(135deg, #020617, #111827);
+      background-image: url("portada.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       box-shadow:
         0 20px 45px rgba(0,0,0,0.75),
         0 0 0 1px rgba(15,23,42,0.9);
       overflow: hidden;
       display: flex;
-      align-items: center;
-      justify-content: center;
+      align-items: flex-end;
+      justify-content: flex-start;
       padding: 16px;
-      text-align: center;
+      color: #f9fafb;
     }
 
-    .hero-portada-texto {
+    .hero-portada::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15,23,42,0.75), transparent 50%);
+    }
+
+    .hero-portada-contenido {
+      position: relative;
+      z-index: 1;
       font-size: 13px;
-      color: #e5e7eb;
       max-width: 260px;
     }
 
-    .hero-portada-texto strong {
+    .hero-portada-contenido strong {
       color: var(--color-acento);
       font-weight: 700;
     }
-
-    .hero-portada-placeholder {
-      margin-top: 10px;
-      font-size: 11px;
-      color: #9ca3af;
-    }
-
-    /* Aquí puedes colocar un fondo con imagen cuando la tengas:
-       .hero-portada {
-         background-image: url("TU-IMAGEN-PORTADA.jpg");
-         background-size: cover;
-         background-position: center;
-       }
-    */
 
     @media (max-width: 800px) {
       .hero {
@@ -250,7 +245,8 @@
       }
     }
 
-    /* TARJETAS CENTRALES (como antes) */
+    /* TARJETA CENTRAL Y FOOTER IGUAL QUE ANTES (resumido) */
+
     .zona-tarjeta {
       max-width: 1080px;
       margin: 0 auto;
@@ -375,7 +371,6 @@
     .contacto {
       margin-top: 16px;
       font-size: 14px;
-      color: #e5e7eb;
     }
 
     .etiqueta {
@@ -405,17 +400,6 @@
       font-weight: 600;
       text-decoration: none;
       box-shadow: 0 10px 25px rgba(21, 128, 61, 0.45);
-      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-    }
-
-    .boton-whatsapp:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 18px 40px rgba(21, 128, 61, 0.7);
-      background: radial-gradient(circle at 0 0, rgba(22,163,74,0.8), rgba(22,163,74,0.3));
-    }
-
-    .boton-whatsapp span {
-      font-size: 18px;
     }
 
     .lado-derecho {
@@ -428,23 +412,6 @@
       flex-direction: column;
       justify-content: space-between;
       gap: 16px;
-    }
-
-    .horario {
-      font-size: 14px;
-      color: #e5e7eb;
-      line-height: 1.5;
-    }
-
-    .direccion {
-      font-size: 13px;
-      color: #9ca3af;
-    }
-
-    .nota {
-      margin-top: 8px;
-      font-size: 12px;
-      color: #9ca3af;
     }
 
     /* FOOTER */
@@ -479,7 +446,6 @@
 </head>
 <body>
 
-  <!-- MENÚ SUPERIOR -->
   <header>
     <nav class="nav">
       <div class="nav-logo">
@@ -498,7 +464,6 @@
   </header>
 
   <main>
-    <!-- PORTADA / HERO CON ESPACIO PARA IMAGEN -->
     <section class="hero">
       <div class="hero-texto">
         <div class="hero-etiqueta">
@@ -525,37 +490,24 @@
       </div>
 
       <div class="hero-portada">
-        <!-- AQUÍ VA TU PORTADA ESPECTACULAR -->
-        <!-- Por ahora solo dejo texto guía -->
-        <div class="hero-portada-texto">
-          <strong>Espacio para portada:</strong> aquí puedes poner una foto
-          de una bicicleta en reparación, rines pulidos o el frente de tu taller.
-          Usa una imagen horizontal de buena calidad.
-          <div class="hero-portada-placeholder">
-            Cuando la tengas, reemplaza este bloque por una imagen de fondo
-            con CSS o un &lt;img&gt;.
-          </div>
+        <div class="hero-portada-contenido">
+          <strong>Taller de bicicletas Alex</strong><br />
+          Deja que la imagen hable por ti: muestra tu mejor trabajo, tu bici favorita
+          o la fachada del taller.
         </div>
       </div>
     </section>
 
-    <!-- SECCIÓN TARJETAS (PRESENTACIÓN) -->
     <section class="zona-tarjeta" id="servicios">
       <div class="card-wrapper">
-
-        <!-- Lado 1: identidad + servicios -->
         <article class="card">
           <div class="chip">Servicio</div>
-
           <div class="logo-circle">
             <span>🚲</span>
           </div>
-
           <h2 class="titulo">Taller de bicicletas Alex</h2>
           <p class="subtitulo">Bicicletas y rines de moto · Cúcuta</p>
-
           <div class="divider"></div>
-
           <div>
             <p class="seccion-titulo">Servicios principales</p>
             <ul class="lista-servicios">
@@ -564,26 +516,17 @@
               <li>Cambio de relación (piñones, cadena, catalina)</li>
             </ul>
           </div>
-
           <div class="divider"></div>
-
           <div class="contacto" id="contacto">
             <p class="etiqueta">Teléfono / WhatsApp</p>
             <p class="valor resaltado">316 786 9984</p>
-
-            <a
-              class="boton-whatsapp"
-              href="https://wa.me/573167869984"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a class="boton-whatsapp" href="https://wa.me/573167869984" target="_blank" rel="noopener noreferrer">
               <span>📲</span>
               <span>Escríbenos por WhatsApp</span>
             </a>
           </div>
         </article>
 
-        <!-- Lado 2: horario + descripción -->
         <article class="lado-derecho" id="horario">
           <div>
             <p class="seccion-titulo">Horario de atención</p>
@@ -592,7 +535,6 @@
               <span class="resaltado">8:00 a.m. – 6:00 p.m.</span>
             </p>
           </div>
-
           <div>
             <p class="seccion-titulo">Sobre el taller</p>
             <p class="direccion">
@@ -604,20 +546,14 @@
             </p>
           </div>
         </article>
-
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
-      <div>
-        © <strong>Taller de bicicletas Alex</strong> — Cúcuta, Colombia.
-      </div>
-      <div>
-        Sitio de presentación tipo tarjeta. Puedes ampliarlo luego con galería de trabajos, mapa y más secciones.
-      </div>
+      <div>© <strong>Taller de bicicletas Alex</strong> — Cúcuta, Colombia.</div>
+      <div>Sitio de presentación tipo tarjeta.</div>
     </div>
   </footer>
 
